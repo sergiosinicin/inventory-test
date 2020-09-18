@@ -9,4 +9,6 @@ mv model app\User to app\Models\User
 php artisan make:controller ProductController --resource
 php artisan make:model Models/Product
 php artisan make:request CreateProductRequest
+php artisan make:
+npm install vue-router
 

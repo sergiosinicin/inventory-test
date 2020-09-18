@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->code }}</td>
-                    <td>{{ $item->details }}</td>
+                    <td>{{ str_limit($item->details,100) }}</td>
                     <td><img alt="{{ $item->name }}" src="{{ URL::to($item->image) }}" width="100px" height="100px"/></td>
                     <td>
                         <a class="btn btn-info" href="{{ route('product.show', $item->id) }}">Show</a>
@@ -46,5 +46,6 @@
             @endforeach
             </tbody>
         </table>
+        {{ $products->links() }}
     </div>
 @endsection
