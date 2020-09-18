@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::resource('product', 'ProductController');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{vue_capture?}', function () {
+    return view('main');
+})->where('vue_capture', '[\/\w\.-]*');
 
