@@ -1,0 +1,12 @@
+composer create-project --prefer-dist laravel/laravel inventory
+composer require --dev barryvdh/laravel-ide-helper
+composer require barryvdh/laravel-debugbar:dev-master
+composer require laravel/ui
+php artisan ui vue --auth
+npm run dev
+php artisan migrate
+mv model app\User to app\Models\User
+php artisan make:controller ProductController --resource
+php artisan make:model Models/Product
+php artisan make:request CreateProductRequest
+
