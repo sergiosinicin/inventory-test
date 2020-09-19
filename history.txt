@@ -16,5 +16,5 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServicePro
 php artisan jwt:secret
 php artisan make:controller AuthController
 php artisan make:middleware JWT
-
+npm install sweetalert2
 
