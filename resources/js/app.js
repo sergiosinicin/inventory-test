@@ -4,9 +4,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import {routes} from './routes';
 
-import User from './helpers/User';
-
 Vue.use(VueRouter);
+
+import User from './helpers/User';
+window.User = User;
 
 // Sweet Alert start
 import Swal from 'sweetalert2'
@@ -25,10 +26,10 @@ const Toast = Swal.mixin({
 });
 
 window.Toast = Toast;
-
 // Sweet Alert End
 
-window.User = User;
+import Notification from './helpers/Notification';
+window.Notification = Notification;
 
 const router = new VueRouter({
     routes,
