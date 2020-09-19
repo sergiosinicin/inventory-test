@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+
 use App\Models\Product;
 use Faker\Generator as Faker;
 
@@ -12,8 +12,11 @@ $factory->define(Product::class,
         //$image = $faker->image('public/storage/images/products/', 300, 300, null, false);
 
         $files = glob(public_path('storage/images/products/*.jpg'));
-        $image = basename(array_random($files));
-        if(!$image) {
+        $image = null;
+        if($files) {
+            $image = basename(array_random($files));
+        }
+        if (count($files) < 10) {
             $image = $faker->image('public/storage/images/products/', 300, 300, null, false);
         }
 

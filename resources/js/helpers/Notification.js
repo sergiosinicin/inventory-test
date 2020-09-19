@@ -1,37 +1,41 @@
 class Notification {
 
-    success() {
+    success(msg = '') {
+        let message = msg ? msg : 'Successfully Done!';
         new Noty({
             type: 'success',
             layout: 'topRight',
-            text: 'Successfully Done!',
+            text: message,
             timeout: 1000,
         }).show();
     }
 
-    alert() {
+    alert(msg = '') {
+        let message = msg ? msg : 'Are you Sure?';
         new Noty({
             type: 'alert',
             layout: 'topRight',
-            text: 'Are you Sure?',
+            text: message,
             timeout: 1000,
         }).show();
     }
 
-    error() {
+    error(msg = '') {
+        let message = msg ? msg : 'Something Went Wrong ! ';
         new Noty({
             type: 'alert',
             layout: 'topRight',
-            text: 'Something Went Wrong ! ',
+            text: message,
             timeout: 1000,
         }).show();
     }
 
-    warning() {
+    warning(msg = '') {
+        let message = msg ? msg : 'Opps Wrong!';
         new Noty({
             type: 'warning',
             layout: 'topRight',
-            text: 'Opps Wrong ',
+            text: message,
             timeout: 1000,
         }).show();
     }

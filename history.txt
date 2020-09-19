@@ -6,10 +6,10 @@ php artisan ui vue --auth
 npm run dev
 php artisan migrate
 mv model app\User to app\Models\User
-php artisan make:controller ProductController --resource
-php artisan make:model Models/Product
-php artisan make:request CreateProductRequest
-php artisan make:
+//php artisan make:controller ProductController --resource
+//php artisan make:model Models/Product
+//php artisan make:request CreateProductRequest
+//php artisan make:factory ProductFactory
 npm install vue-router
 composer require tymon/jwt-auth
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
@@ -17,4 +17,9 @@ php artisan jwt:secret
 php artisan make:controller AuthController
 php artisan make:middleware JWT
 npm install sweetalert2
-
+php artisan make:migration create_employees_table --create=employees
+php artisan make:controller Api/EmployeeController --resource
+php artisan make:model Models/Employee
+composer require intervention/image (http://image.intervention.io/)
+php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+php artisan make:factory EmployeeFactory (tinker: factory(App\Models\Employee::class,10)->create())
