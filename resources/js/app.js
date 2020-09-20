@@ -3,8 +3,8 @@ require('./bootstrap');
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import {routes} from './routes';
-
 Vue.use(VueRouter);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 import User from './helpers/User';
 window.User = User;
