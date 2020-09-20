@@ -36,13 +36,13 @@ class SupplierController extends Controller
 
         $supplier = new Suppliers();
         $supplier->fill($request->all());
-        if($request->photo && $image_url = $this->storeImage($request->photo)) {
+        if ($request->photo && $image_url = $this->storeImage($request->photo)) {
             $supplier->photo = '/'.$image_url;
         }
 
         $supplier->save();
 
-        return response()->json(['success'=>'Employee saved successfully']);
+        return response()->json(['success' => 'Employee saved successfully']);
     }
 
     /**
@@ -66,7 +66,7 @@ class SupplierController extends Controller
         $supplier = Suppliers::findOrFail($id);
         $currentImage = $supplier->photo;
 
-         $request->validate([
+        $request->validate([
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
@@ -74,8 +74,8 @@ class SupplierController extends Controller
 
         $supplier->fill($request->all());
 
-        if($request->new_photo && $image_url = $this->storeImage($request->new_photo)) {
-            if($currentImage && file_exists($currentImage)) {
+        if ($request->new_photo && $image_url = $this->storeImage($request->new_photo)) {
+            if ($currentImage && file_exists($currentImage)) {
                 unlink($currentImage);
             }
             $supplier->photo = '/'.$image_url;
@@ -96,7 +96,7 @@ class SupplierController extends Controller
     {
         $supplier = Suppliers::findOrFail($id);
         if (!$supplier->delete()) {
-            return response()->json(['error'=>'Employee don`t deleted!']);
+            return response()->json(['error' => 'Employee don`t deleted!']);
         }
 
         if (file_exists($supplier->photo)) {
