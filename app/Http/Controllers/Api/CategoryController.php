@@ -46,7 +46,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return response()->json(['success'=>'Category saved successfully']);
+        return response()->json(['success' => 'Category saved successfully']);
     }
 
     /**
@@ -71,9 +71,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-          $category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-         $request->validate([
+        $request->validate([
             'name' => 'required',
         ]);
 
@@ -91,9 +91,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-         $category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         if (!$category->delete()) {
-            return response()->json(['error'=>'Category don`t deleted!']);
+            return response()->json(['error' => 'Category don`t deleted!']);
         }
 
         return response()->json(['success' => 'Category successfully deleted']);
